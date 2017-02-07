@@ -1,0 +1,70 @@
+﻿#r "C:\experimental\Geographic_Information_Exploration\LocationMeasurementClassLibrary\LocationMeasurementClassLibrary\bin\Debug\LocationMeasurementClassLibrary.dll"
+
+using LocationMeasurementClassLibrary;
+using LocationMeasurementClassLibrary.WatchDataGPX_LegacyCode;
+
+Directory.SetCurrentDirectory(@"C:\experimental\Geographic_Information_Exploration\Trial GPX data");
+
+var filenames = new List<string>();
+
+foreach(var s in Directory.EnumerateFiles(Directory.GetCurrentDirectory())) {
+    filenames.Add(s);
+}
+
+
+var DataGPX_text = new List<string>();
+
+foreach(var s in filenames) {
+    DataGPX_text.Add(File.ReadAllText(s));
+}
+
+var TrackSegments = new List<TrackSegmentGPX>();
+
+foreach(var d in DataGPX_text) {
+    GPXreader gpxr = new GPXreader(d);
+    gpxr.AdvanceToTrackSegmentGPX();
+    TrackSegmentGPX seg = gpxr.ReadTrackSegmentGPX();
+    TrackSegments.Add(seg);
+}
+
+int idx = 1;
+foreach(var seg in TrackSegments) {
+    Console.WriteLine("Track Segment #{0}:", idx);
+    Console.Write(seg.InfoString());
+    Console.WriteLine(" ");   
+    Console.WriteLine(" ");
+    ++idx;
+}
+
+
+var TracksForCloud = new List<List<TrackPoint>>();
+
+foreach (var seg in TrackSegments) {
+    TracksForCloud.Add(new List<TrackPoint>());
+    var current = TracksForCloud.Last();
+    foreach (var gpx in seg) {
+        current.Add(new TrackPoint(gpx));
+    }
+}
+
+int i = 1;
+foreach (var track in TracksForCloud) {
+    Console.WriteLine("Track #{0} contains {1} track points", i, track.Count);
+    ++i;
+    int idx = 0;
+    foreach(var measure in track) {
+        if (idx % 500 == 0) {
+            Console.WriteLine("....   Track point #{0}   ....", idx);
+            Console.Write(measure.ToString());
+        }
+        ++idx;
+    }
+    Console.WriteLine(" ");
+    Console.WriteLine(" ");
+}
+
+var tp_gpx = TrackSegments.ElementAt(2).ElementAt(500);
+Console.WriteLine(tp_gpx.ToString());
+
+var track = new Track(TrackSegments.ElementAt(2));
+track.IsEmpty
