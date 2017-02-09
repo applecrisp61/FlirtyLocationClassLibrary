@@ -64,8 +64,7 @@ namespace FlirtyLocation.WatchDataGPX_LegacyCode {
             return Math.Sqrt(Math.Pow(flatDistanceMeters, 2) + Math.Pow(zDistanceMeters, 2));
         }
 
-        public override string ToString() {
-            StringBuilder sb = new StringBuilder();
+		public override string ToString() {
 
             var tp = new TrackPoint(this);
             return tp.ToString();

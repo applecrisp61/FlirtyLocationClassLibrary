@@ -139,18 +139,27 @@ namespace FlirtyLocation {
         [Version]
         public string Version { get; set; }
 
-        public string Trackname
-        {
-            get
-            {
-                return _trackname;
-            }
+		// Default empty constructor
+		public LocationMeasurement() { }
 
-            set
-            {
-                _trackname = value;
-            }
-        }
+		/// Copy constructor: Deep copy
+		public LocationMeasurement(LocationMeasurement toCopy) {
+			TrackId = toCopy.TrackId;
+			TrackName = toCopy.TrackName;
+			UserId = toCopy.UserId;
+			UserName = toCopy.UserName;
+			Provider = toCopy.Provider;
+			IsFromFakeProvider = toCopy.IsFromFakeProvider;
+			Latitude = toCopy.Latitude;
+			Longitude = toCopy.Longitude;
+			DateTimeStamp = toCopy.DateTimeStamp;
+			Elevation = toCopy.Elevation;
+			BuildingFloor = toCopy.BuildingFloor;
+			Speed = toCopy.Speed;
+			Bearing = toCopy.Bearing;
+			HorizontalAccuracy = toCopy.HorizontalAccuracy;
+			VerticalAccuracy = toCopy.VerticalAccuracy;
+		}
     }
 
 }
