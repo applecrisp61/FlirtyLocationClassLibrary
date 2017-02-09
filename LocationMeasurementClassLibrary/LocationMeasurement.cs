@@ -5,135 +5,135 @@ using Newtonsoft.Json;
 namespace FlirtyLocation {
     public class LocationMeasurement {
         // required data elements
-        private string _id;
-        private int _userid;
-        private string _username;
-        private int _trackid;
-        private string _trackname;
-        private double _latitude;
-        private double _longitude;
-        private DateTime _datetimestamp;
-        private string _provider;
-        private bool _isfromfakeprovider;
+		private string id;
+		private int userid;
+		private string username;
+		private int trackid;
+		private string trackname;
+		private double latitude;
+        private double longitude;
+		private DateTime datetimestamp;
+        private string provider;
+		private bool isfrommockprovider;
 
         // optional data elements
-        private double? _elevation;
-        private int? _buildingfloor;
-        private double? _speed;
-        private double? _bearing;
-        private double? _horizontalaccuracy;
-        private double? _verticalaccuracy;
+		private double? elevation;
+		private int? buildingfloor;
+		private double? speed;
+		private double? bearing;
+		private double? horizontalaccuracy;
+		private double? verticalaccuracy;
 
-        [JsonProperty(PropertyName = nameof(_id))]
+		[JsonProperty(PropertyName = nameof(id))] // Note: id is a special column name; must be idß
         public string Id
         {
-            get { return _id; }
-            set { _id = value; }
+            get { return id; }
+            set { id = value; }
         }
 
-        [JsonProperty(PropertyName = nameof(_userid))]
+        [JsonProperty(PropertyName = nameof(userid))]
         public int UserId
         {
-            get { return _userid; }
-            set { _userid = value; }
+            get { return userid; }
+            set { userid = value; }
         }
 
-        [JsonProperty(PropertyName = nameof(_username))]
+        [JsonProperty(PropertyName = nameof(username))]
         public string UserName
         {
-            get { return _username; }
-            set { _username = value; }
+            get { return username; }
+            set { username = value; }
         }
 
-        [JsonProperty(PropertyName = nameof(_trackid))]
+        [JsonProperty(PropertyName = nameof(trackid))]
         public int TrackId
         {
-            get { return _trackid; }
-            set { _trackid = value; }
+            get { return trackid; }
+            set { trackid = value; }
         }
 
-        [JsonProperty(PropertyName = nameof(_trackname))]
+        [JsonProperty(PropertyName = nameof(trackname))]
         public string TrackName
         {
-            get { return _trackname; }
-            set { _trackname = value; }
+            get { return trackname; }
+            set { trackname = value; }
         }
 
-        [JsonProperty(PropertyName = nameof(_latitude))]
+        [JsonProperty(PropertyName = nameof(latitude))]
         public double Latitude
         {
-            get { return _latitude; }
-            set { _latitude = value; }
+            get { return latitude; }
+            set { latitude = value; }
         }
 
-        [JsonProperty(PropertyName = nameof(_longitude))]
+        [JsonProperty(PropertyName = nameof(longitude))]
         public double Longitude
         {
-            get { return _longitude; }
-            set { _longitude = value; }
+            get { return longitude; }
+            set { longitude = value; }
         }
 
-        [JsonProperty(PropertyName = nameof(_datetimestamp))]
+        [JsonProperty(PropertyName = nameof(datetimestamp))]
         public DateTime DateTimeStamp
         {
-            get { return _datetimestamp; }
-            set { _datetimestamp = value; }
+            get { return datetimestamp; }
+            set { datetimestamp = value; }
         }
 
-        [JsonProperty(PropertyName = nameof(_provider))]
+        [JsonProperty(PropertyName = nameof(provider))]
         public string Provider
         {
-            get { return _provider; }
-            set { _provider = value; }
+            get { return provider; }
+            set { provider = value; }
         }
 
-        [JsonProperty(PropertyName = nameof(_isfromfakeprovider))]
-        public bool IsFromFakeProvider
+        [JsonProperty(PropertyName = nameof(isfrommockprovider))]
+		public bool IsFromMockProvider
         {
-            get { return _isfromfakeprovider; }
-            set { _isfromfakeprovider = value; }
+            get { return isfrommockprovider; }
+            set { isfrommockprovider = value; }
         }
 
-        [JsonProperty(PropertyName = nameof(_elevation))]
+        [JsonProperty(PropertyName = nameof(elevation))]
         public double? Elevation
         {
-            get { return _elevation; }
-            set { _elevation = value; }
+            get { return elevation; }
+            set { elevation = value; }
         }
 
-        [JsonProperty(PropertyName = nameof(_buildingfloor))]
+        [JsonProperty(PropertyName = nameof(buildingfloor))]
         public int? BuildingFloor
         {
-            get { return _buildingfloor; }
-            set { _buildingfloor = value; }
+            get { return buildingfloor; }
+            set { buildingfloor = value; }
         }
 
-        [JsonProperty(PropertyName = nameof(_speed))]
+        [JsonProperty(PropertyName = nameof(speed))]
         public double? Speed
         {
-            get { return _speed; }
-            set { _speed = value; }
+            get { return speed; }
+            set { speed = value; }
         }
 
-        [JsonProperty(PropertyName = nameof(_bearing))]
+        [JsonProperty(PropertyName = nameof(bearing))]
         public double? Bearing
         {
-            get { return _bearing; }
-            set { _bearing = value; }
+            get { return bearing; }
+            set { bearing = value; }
         }
 
-        [JsonProperty(PropertyName = nameof(_horizontalaccuracy))]
+        [JsonProperty(PropertyName = nameof(horizontalaccuracy))]
         public double? HorizontalAccuracy
         {
-            get { return _horizontalaccuracy; }
-            set { _horizontalaccuracy = value; }
+            get { return horizontalaccuracy; }
+            set { horizontalaccuracy = value; }
         }
 
-        [JsonProperty(PropertyName = nameof(_verticalaccuracy))]
+        [JsonProperty(PropertyName = nameof(verticalaccuracy))]
         public double? VerticalAccuracy
         {
-            get { return _verticalaccuracy; }
-            set { _verticalaccuracy = value; }
+            get { return verticalaccuracy; }
+            set { verticalaccuracy = value; }
         }
 
         [Version]
@@ -149,7 +149,7 @@ namespace FlirtyLocation {
 			UserId = toCopy.UserId;
 			UserName = toCopy.UserName;
 			Provider = toCopy.Provider;
-			IsFromFakeProvider = toCopy.IsFromFakeProvider;
+			IsFromMockProvider = toCopy.IsFromMockProvider;
 			Latitude = toCopy.Latitude;
 			Longitude = toCopy.Longitude;
 			DateTimeStamp = toCopy.DateTimeStamp;
